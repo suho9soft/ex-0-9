@@ -9,3 +9,9 @@ Pico W 라고 하면 저것을 끌릭해서 다운로드 해서 끌러다 D,F �
 환경을 내가 F 드라이브 쪽에 만들었다 거기 도구에서 시스템 쉘 열기 여기에서 인스톨 내가 필요
 한 만약에 MQTT 인스톨 하고 쉽다 그럼 챗 GPT 나 윈도우 조종사 한테 물어 보면 답을 준니다
 그것을 넣어 주면 된니다
+
+ESP32 Wrover Module
+
+![이미지 설명](https://github.com/suho9soft/ex-0-7/blob/main/61xa3vc2TYL._SL1010_.jpg)
+
+![My Image](https://github.com/suho9soft/ex-0-7/blob/main/71D4E5DS-qL._SL1500_.jpg)
