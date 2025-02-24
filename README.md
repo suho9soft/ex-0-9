@@ -10,7 +10,7 @@ Pico W 라고 하면 저것을 끌릭해서 다운로드 해서 끌러다 D,F �
 한 만약에 MQTT 인스톨 하고 쉽다 그럼 챗 GPT 나 윈도우 조종사 한테 물어 보면 답을 준니다
 그것을 넣어 주면 된니다
 
-ESP32 Wrover Module
+ESP32 Dev Module
 
 ![이미지 설명](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-24%20121747.png)
 
