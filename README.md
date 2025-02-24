@@ -16,4 +16,64 @@ ESP32 Dev Module
 
 ![My Image](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-24%20122428.png)
 
+라즈베리 파이 mysql 명령어
+
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+
+//아래 부분을 찾아서
+
+bind-address = 127.0.0.1
+
+//이렇게 바꿔주기(그리고 나서 저장)
+
+bind-address = 0.0.0.0
+
+//db접속
+
+sudo mysql -u root
+
+//사용자 계정생성
+
+CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
+
+//권한부여
+
+GRANT CREATE, DROP, ALTER, SELECT, INSERT, UPDATE, DELETE ON . TO 'arduino'@'%'; FLUSH PRIVILEGES;
+
+//데이터베이스 재부팅
+
+sudo systemctl restart mariadb
+
+//계정생성확인(로그인해보기)
+
+sudo mysql -u arduino -p
+
+//비밀번호입력
+
+show databases;
+
+1// use python14;
+
+show tables;
+
+desc rotary_data;
+
+select * from rotary_data;
+
+2// use python14;
+
+show tables;
+
+desc dht11_data;
+
+select * from dht11_data;
+
+3// use python14;
+
+show tables;
+
+desc final_data;
+
+select * from final_data;
+
 ![My Image](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-21%20004948.png)
