@@ -19,6 +19,8 @@ ESP32 Dev Module
 ![My Image](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-26%20025319.png)
 
 ESP32 S3 (GND VCC SDL SDA) (- 3.3V 22 21)
+아두이노 기본 설정
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 라즈베리 파이 mysql workbench 명령어
 
