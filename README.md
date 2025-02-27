@@ -20,7 +20,12 @@ ESP32 Dev Module
 
 ESP32 S3 (GND VCC SDL SDA) (- 3.3V 22 21)
 아두이노 기본 설정
+
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+raspberry pi pico 2w 아두이노 기본 설정 
+
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
 라즈베리 파이 mysql workbench 명령어
 
