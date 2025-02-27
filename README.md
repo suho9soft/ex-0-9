@@ -92,6 +92,7 @@ select * from final_data;
 
 
 
+
 라즈베리파이에서 MQTT 클라이언트인 MQTTX를 설치하려면, MQTTX의 공식 GitHub 저장소에서 ARM 아키텍처용 AppImage 파일을 다운로드하여 실행할 수 있습니다. 아래는 설치 방법입니다:
 
 MQTTX AppImage 다운로드:
