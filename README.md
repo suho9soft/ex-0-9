@@ -27,60 +27,6 @@ raspberry pi pico 2w 아두이노 기본 설정
 
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
-라즈베리파이에서 MQTT 클라이언트인 MQTTX를 설치하려면, MQTTX의 공식 GitHub 저장소에서 ARM 아키텍처용 AppImage 파일을 다운로드하여 실행할 수 있습니다. 아래는 설치 방법입니다:
-
-MQTTX AppImage 다운로드:
-
-라즈베리파이의 터미널을 열고, 다음 명령어를 입력하여 AppImage 파일을 다운로드합니다:
-ruby
-복사
-편집
-wget https://github.com/emqx/MQTTX/releases/download/v1.9.1/MQTTX-1.9.1-arm64.AppImage
-위 명령어는 MQTTX의 1.9.1 버전을 ARM64 아키텍처용으로 다운로드합니다. 최신 버전은 MQTTX GitHub Releases 페이지에서 확인할 수 있습니다.
-실행 권한 부여:
-
-다운로드한 AppImage 파일에 실행 권한을 부여합니다:
-bash
-복사
-편집
-chmod +x MQTTX-1.9.1-arm64.AppImage
-MQTTX 실행:
-
-다음 명령어를 입력하여 MQTTX를 실행합니다:
-복사
-편집
-./MQTTX-1.9.1-arm64.AppImage
-이제 GUI 기반의 MQTT 클라이언트인 MQTTX를 라즈베리파이에서 사용할 수 있습니다.
-
-또한, MQTT 브로커를 설치하려면 Mosquitto를 사용할 수 있습니다. Mosquitto는 오픈 소스 MQTT 브로커로, 라즈베리파이에서 쉽게 설치할 수 있습니다. 설치 방법은 다음과 같습니다:
-
-패키지 목록 업데이트:
-
-터미널에서 다음 명령어를 입력하여 패키지 목록을 업데이트합니다:
-sql
-복사
-편집
-sudo apt update
-Mosquitto 및 클라이언트 설치:
-
-다음 명령어를 입력하여 Mosquitto와 클라이언트 도구를 설치합니다:
-nginx
-복사
-편집
-sudo apt install -y mosquitto mosquitto-clients
-Mosquitto 서비스 시작 및 부팅 시 자동 시작 설정:
-
-Mosquitto 서비스를 시작하고, 부팅 시 자동으로 시작되도록 설정합니다:
-pgsql
-복사
-편집
-sudo systemctl start mosquitto
-sudo systemctl enable mosquitto
-이제 라즈베리파이에서 Mosquitto MQTT 브로커가 실행 중이며, MQTTX를 사용하여 브로커와 통신할 수 있습니다.
-
-더 자세한 Mosquitto 설치 방법은 IoTmaker의 가이드를 참고하시기 바랍니다.
-
-또한, 라즈베리파이에서 Mosquitto 설치 과정을 시청하시려면 아래 영상을 참고하실 수 있습니다:
 
 라즈베리 파이 mysql workbench 명령어
 
@@ -143,3 +89,85 @@ desc final_data;
 select * from final_data;
 
 ![My Image](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-21%20004948.png)
+
+
+
+라즈베리파이에서 MQTT 클라이언트인 MQTTX를 설치하려면, MQTTX의 공식 GitHub 저장소에서 ARM 아키텍처용 AppImage 파일을 다운로드하여 실행할 수 있습니다. 아래는 설치 방법입니다:
+
+MQTTX AppImage 다운로드:
+
+라즈베리파이의 터미널을 열고, 다음 명령어를 입력하여 AppImage 파일을 다운로드합니다:
+
+ruby
+
+복사
+
+편집
+
+wget https://github.com/emqx/MQTTX/releases/download/v1.9.1/MQTTX-1.9.1-arm64.AppImage
+
+위 명령어는 MQTTX의 1.9.1 버전을 ARM64 아키텍처용으로 다운로드합니다. 최신 버전은 MQTTX GitHub Releases 페이지에서 확인할 수 있습니다.
+
+실행 권한 부여:
+
+다운로드한 AppImage 파일에 실행 권한을 부여합니다:
+
+bash
+
+복사
+
+편집
+
+chmod +x MQTTX-1.9.1-arm64.AppImage
+
+MQTTX 실행:
+
+다음 명령어를 입력하여 MQTTX를 실행합니다:
+
+복사
+
+편집
+
+./MQTTX-1.9.1-arm64.AppImage
+
+이제 GUI 기반의 MQTT 클라이언트인 MQTTX를 라즈베리파이에서 사용할 수 있습니다.
+
+또한, MQTT 브로커를 설치하려면 Mosquitto를 사용할 수 있습니다. Mosquitto는 오픈 소스 MQTT 브로커로, 라즈베리파이에서 쉽게 설치할 수 있습니다. 설치 방법은 다음과 같습니다:
+
+패키지 목록 업데이트:
+
+터미널에서 다음 명령어를 입력하여 패키지 목록을 업데이트합니다:
+
+sql
+
+복사
+
+편집
+
+udo apt update
+
+Mosquitto 및 클라이언트 설치:
+
+다음 명령어를 입력하여 Mosquitto와 클라이언트 도구를 설치합니다:
+
+nginx
+
+복사
+
+편집
+
+sudo apt install -y mosquitto mosquitto-clients
+
+Mosquitto 서비스 시작 및 부팅 시 자동 시작 설정:
+
+Mosquitto 서비스를 시작하고, 부팅 시 자동으로 시작되도록 설정합니다:
+
+pgsql
+
+복사
+
+편집
+
+sudo systemctl start mosquitto
+
+sudo systemctl enable mosquitto
