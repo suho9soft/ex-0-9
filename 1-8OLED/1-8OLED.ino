@@ -13,11 +13,6 @@ DHT dht(DHTPIN, DHTTYPE);
 StaticJsonDocument<96> doc_in;
 StaticJsonDocument<96> doc_out;
 
-// 공유기 정보 입력
-//const char* ssid = "Your_SSID"; // 여기에 공유기 이름을 입력하세요
-//const char* password = "Your_PASSWORD"; // 여기에 비밀번호를 입력하세요
-
-// 브로커의 주소
 const char* mqtt_server = "broker.emqx.io";
 
 WiFiClient espClient;
@@ -25,9 +20,8 @@ PubSubClient client(espClient);
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE  (50)
 char msg[MSG_BUFFER_SIZE];
-int value = 0;
 
-unsigned long mqtt_t = 0; //ESP32의 시간을 저장
+unsigned long mqtt_t = 0; // ESP32 시간 저장
 
 // OLED 디스플레이 설정
 #define SCREEN_WIDTH 128
@@ -35,7 +29,6 @@ unsigned long mqtt_t = 0; //ESP32의 시간을 저장
 #define OLED_RESET    -1
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-//ESP32가 인터넷 공유기와 접속을 하기 위한 부분
 void setup_wifi() {
   delay(10);
   Serial.println();
@@ -45,7 +38,7 @@ void setup_wifi() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
- while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
@@ -58,7 +51,6 @@ void setup_wifi() {
   Serial.println(WiFi.localIP());
 }
 
-//ESP32가 데이터를 브로커로부터 수신하는 부분
 void on_message(char* topic, byte* payload, unsigned int length) {
   String mypayload = "";
   Serial.print("Message arrived [");
@@ -77,7 +69,7 @@ void on_message(char* topic, byte* payload, unsigned int length) {
     return;
   }
 
-  String myname = doc_in["name"]; 
+  String myname = doc_in["name"];
   int age = doc_in["age"];
   String gender = doc_in["gender"];
 
@@ -90,11 +82,10 @@ void on_message(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 }
 
-//ESP32가 브로커와 접속을 유지하는 부분
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-    String clientId = "ESP8266Client-";
+    String clientId = "ESP32Client-";
     clientId += String(random(0xffff), HEX);
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
@@ -115,12 +106,12 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(on_message);
 
-  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // I2C 주소는 0x3C입니다.
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // I2C 주소는 0x3C
     Serial.println(F("SSD1306 allocation failed"));
     for (;;);
   }
   display.display();
-  delay(2000); // 초기 화면을 2초 동안 표시
+  delay(2000);
   display.clearDisplay();
 }
 
@@ -133,33 +124,41 @@ void loop() {
   if (millis() - mqtt_t > 1000) {
     mqtt_t = millis();
 
-    doc_out["rotary"] = analogRead(34);
-    doc_out["temp"] = dht.readTemperature() * 10;
-    doc_out["humi"] = dht.readHumidity() * 10;
+    int temp = round(dht.readTemperature()); // 온도 값을 반올림하여 정수로 변환
+    int humi = round(dht.readHumidity()); // 습도 값을 반올림하여 정수로 변환
+    int rotary = analogRead(34);
+
+    doc_out["rotary"] = rotary;
+    doc_out["temp"] = temp;
+    doc_out["humi"] = humi;
 
     String output = "";
     serializeJson(doc_out, output);
 
     client.publish("arduino/input", output.c_str());
 
-    // OLED에 데이터 출력
+    // OLED 출력
     display.clearDisplay();
-    display.setTextSize(1); // 글자 크기를 크게 조정
+    display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
     display.setCursor(0, 0);
     display.print("Name: ");
-    display.print("MyDevice"); // 장치 이름을 원하는대로 변경하세요
-    display.setCursor(0, 16); // 더 큰 글자 크기를 감안하여 Y 좌표 조정
+    display.print("ESP32 S3");
+
+    display.setCursor(0, 16);
     display.print("Temp: ");
-    display.print(dht.readTemperature() * 10);
+    display.printf("%02d", temp);
     display.print(" C");
+
     display.setCursor(0, 32);
     display.print("Humi: ");
-    display.print(dht.readHumidity() * 10);
+    display.printf("%02d", humi);
     display.print(" %");
+
     display.setCursor(0, 48);
     display.print("Rotary: ");
-    display.print(analogRead(34));
+    display.print(rotary);
+
     display.display();
   }
 }
