@@ -54,7 +54,7 @@ sudo mysql -u root
 
 //사용자 계정생성
 
-CREATE USER 'arduino'@'%' IDENTIFIED BY 'qwer1234';
+CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
 //권한부여
 
