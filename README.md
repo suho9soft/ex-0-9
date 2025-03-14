@@ -50,19 +50,75 @@ bind-address = 0.0.0.0
 
 //db접속
 
-sudo mysql -u root
+MySQL 루트 계정으로 접속:
 
-//사용자 계정생성
+bash
+
+복사
+
+sudo mysql -u root -p
+
+위 명령어로 루트 계정에 접속한 후 비밀번호를 입력합니다.
+
+사용자 계정 생성:
+
+sql
+
+복사
 
 CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
-//권한부여
+이 명령어는 arduino라는 사용자를 생성하고, 비밀번호를 '123f5678'으로 설정합니다.
 
-GRANT CREATE,DROP,SELECT,INSERT,UPDATE,DELETE ON *.* TO 'arduino'@'%';
+권한 부여:
 
-//권한부여
+MySQL에서 권한을 부여할 때 *.* (모든 데이터베이스 및 모든 테이블)에 대해 권한을 부여하려면 다음과 같이 작성해야 합니다.
+
+sql
+
+복사
+
+GRANT CREATE, DROP, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
+
+여기서 *.*는 모든 데이터베이스와 테이블을 의미합니다. 만약 특정 데이터베이스에만 권한을 부여하려면 *.*를 해당 데이터베이스 이름으로 변경할 수 있습니다.
+
+예시: 특정 데이터베이스 mydatabase에만 권한을 부여하려면:
+
+sql
+
+복사
+
+GRANT CREATE, DROP, SELECT, INSERT, UPDATE, DELETE ON mydatabase.* TO 'arduino'@'%';
+
+권한 적용:
+
+ql
+
+복사
 
 FLUSH PRIVILEGES;
+
+이 명령어는 권한 부여 후에 MySQL 서버에 적용하는 명령어입니다.
+
+최종적으로 전체 과정은 아래와 같습니다:
+
+bash
+
+복사
+
+sudo mysql -u root -p
+
+sql
+
+복사
+
+CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
+
+GRANT CREATE, DROP, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
+
+FLUSH PRIVILEGES;
+
+이렇게 하면 arduino 사용자에게 MySQL의 모든 데이터베이스에 대해 필요한 권한이 부여됩니다.
 
 //데이터베이스 재부팅
 
