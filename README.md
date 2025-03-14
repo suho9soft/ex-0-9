@@ -58,7 +58,7 @@ CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
 //권한부여
 
-GRANT CREATE, DROP,ALTER , SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
+GRANT CREATE, DROP, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
 
 //권한부여
 
