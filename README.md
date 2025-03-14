@@ -27,7 +27,13 @@ raspberry pi pico 2w 아두이노 기본 설정
 
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
+/// MY SQL 설치
+
 sudo apt install mariadb-server
+
+sudo systemctl status mysql
+
+
 
 
 라즈베리 파이 mysql workbench 명령어
