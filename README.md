@@ -92,7 +92,7 @@ GRANT CREATE, DROP, SELECT, INSERT, UPDATE, DELETE ON mydatabase.* TO 'arduino'@
 
 권한 적용:
 
-ql
+sql
 
 복사
 
