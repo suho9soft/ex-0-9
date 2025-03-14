@@ -142,7 +142,7 @@ sudo mysql -u arduino -p
 
 show databases;
 
-1// use python14;
+1// use python30;
 
 show tables;
 
