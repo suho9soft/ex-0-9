@@ -60,6 +60,8 @@ CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
 GRANT CREATE, DROP,ALTER , SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
 
+//권한부여
+
 FLUSH PRIVILEGES;
 
 //데이터베이스 재부팅
