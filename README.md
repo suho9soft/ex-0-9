@@ -27,6 +27,63 @@ raspberry pi pico 2w 아두이노 기본 설정
 
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
+라즈베리파이 5에서 MySQL을 설정하는 방법을 알려드리겠습니다. MySQL은 데이터베이스 관리 시스템으로, 라즈베리파이에 쉽게 설치할 수 있습니다. 아래 단계를 따라 진행하시면 됩니다:
+
+1. 라즈베리파이 업데이트
+
+먼저, 라즈베리파이의 패키지 목록을 최신 상태로 업데이트합니다.
+
+bash
+
+복사
+
+sudo apt update
+
+sudo apt upgrade
+2. MySQL 서버 설치
+MySQL 서버를 설치하려면 다음 명령어를 입력하세요:
+
+bash
+
+복사
+
+sudo apt install mysql-server
+
+설치가 완료되면 MySQL 서비스가 자동으로 시작됩니다.
+
+3. MySQL 보안 설정
+
+MySQL의 초기 보안 설정을 위한 스크립트를 실행해야 합니다. 이 스크립트를 실행하여 MySQL의 기본 보안 설정을 강화할 수 있습니다.
+
+bash
+
+복사
+sudo mysql_secure_installation
+
+이 명령을 실행하면 몇 가지 질문이 나오는데, 적절히 입력해주세요.
+
+Enter current password for root (enter for none): 비밀번호가 설정되지 않았다면 그냥 Enter를 누르세요.
+
+Set root password?: Y를 선택하고, 루트 비밀번호를 설정합니다.
+
+Remove anonymous users?: Y를 선택하여 익명 사용자 계정을 삭제합니다.
+
+Disallow root login remotely?: Y를 선택하여 원격에서 root 계정으로 로그인하지 못하도록 설정합니다.
+
+Remove test database and access to it?: Y를 선택하여 테스트 데이터베이스를 삭제합니다.
+
+Reload privilege tables now?: Y를 선택하여 권한 테이블을 다시 로드합니다.
+
+4. MySQL 서비스 상태 확인
+
+MySQL 서비스가 정상적으로 실행되고 있는지 확인합니다.
+
+bash
+복사
+sudo systemctl status mysql
+
+서비스가 활성화되어 있으면 "active (running)"이라고 표시됩니다.
+
 
 라즈베리 파이 mysql workbench 명령어
 
