@@ -51,7 +51,7 @@ desc dht11_data;
 
 select * from dht11_data;
 
-3// use python14;
+3// use python30;
 
 show tables;
 
