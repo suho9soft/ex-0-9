@@ -165,6 +165,7 @@ show tables;
 desc final_data;
 
 select * from final_data;
+
 4// use python30;
 
 show tables;
