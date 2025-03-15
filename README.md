@@ -87,7 +87,7 @@ sudo mysql -u arduino -p
 
 show databases;
 
-1// use python1;
+1//  use python1;
 
 show tables;
 
@@ -95,7 +95,7 @@ desc rotary_data;
 
 select * from rotary_data;
 
-2// use python2;
+2//  use python2;
 
 show tables;
 
@@ -103,7 +103,7 @@ desc dht11_data;
 
 select * from dht11_data;
 
-3// use python30;
+3//  use python30;
 
 show tables;
 
@@ -111,7 +111,7 @@ desc final_data;
 
 select * from final_data;
 
-4// use python31;
+4//  use python31;
 
 show tables;
 
