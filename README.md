@@ -119,3 +119,23 @@ desc distance_data;
 
 select * from distance_data;
 
+// 라즈베라파이5 MQTTX 다운로드 및 부팅 방법 //
+
+//인터넷 Firefox 에 접속 한다 그다음 MQTTX 에서 Web 끌릭 그다음
+
++ 끄릭 그럼 MQTTX 열린니다 그다음에 이름 만약에 arduino 라고 접고
+
+  그다음에 버젼 3.1.1설정 그리고 Connect 끌릭 + New Subscription
+
+  보여조 여기에  arduino/output
+
+  그다음 밑에 Published 여기에다가은  arduino/input
+
+   그다은 비행기 모양 끌릭
+
+  그럼 MQTTX 세팅이 된니다
+
+
+
+
+
