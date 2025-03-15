@@ -27,7 +27,41 @@ raspberry pi pico 2w 아두이노 기본 설정
 
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
-MYSQL
+MY SQL
+
+라즈베리파이에 마리아DB 설치하기
+
+sudo apt update && sudo apt upgrade -y
+
+//설치
+
+sudo apt install -y mariadb-server 
+
+//커맨드라인클라이언트 실행
+
+sudo mysql -u root
+
+//빠져나오기
+
+exit;
+
+//파이썬 pymysql 패키지 설치하기
+
+pip install pymysql
+
+//이 파일을 vi편집기나 nano에디터로 열기
+
+sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
+
+//아래 부분을 찾아서
+
+bind-address = 127.0.0.1
+
+//이렇게 바꿔주기(그리고 나서 저장)
+
+bind-address = 0.0.0.0
+
+//db접속
 
 sudo mysql -u root
 
@@ -53,7 +87,7 @@ sudo mysql -u arduino -p
 
 show databases;
 
-1// use python30;
+1// use python1;
 
 show tables;
 
@@ -61,7 +95,7 @@ desc rotary_data;
 
 select * from rotary_data;
 
-2// use python14;
+2// use python2;
 
 show tables;
 
@@ -77,7 +111,7 @@ desc final_data;
 
 select * from final_data;
 
-4// use python1;
+4// use python31;
 
 show tables;
 
@@ -85,87 +119,3 @@ desc distance_data;
 
 select * from distance_data;
 
-![My Image](https://github.com/suho9soft/ex-0-9/blob/main/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-02-21%20004948.png)
-
-
-
-
-라즈베리파이에서 MQTT 클라이언트인 MQTTX를 설치하려면, MQTTX의 공식 GitHub 저장소에서 ARM 아키텍처용 AppImage 파일을 다운로드하여 실행할 수 있습니다. 아래는 설치 방법입니다:
-
-MQTTX AppImage 다운로드:
-
-라즈베리파이의 터미널을 열고, 다음 명령어를 입력하여 AppImage 파일을 다운로드합니다:
-
-ruby
-
-복사
-
-편집
-
-wget https://github.com/emqx/MQTTX/releases/download/v1.9.1/MQTTX-1.9.1-arm64.AppImage
-
-위 명령어는 MQTTX의 1.9.1 버전을 ARM64 아키텍처용으로 다운로드합니다. 최신 버전은 MQTTX GitHub Releases 페이지에서 확인할 수 있습니다.
-
-실행 권한 부여:
-
-다운로드한 AppImage 파일에 실행 권한을 부여합니다:
-
-bash
-
-복사
-
-편집
-
-chmod +x MQTTX-1.9.1-arm64.AppImage
-
-MQTTX 실행:
-
-다음 명령어를 입력하여 MQTTX를 실행합니다:
-
-복사
-
-편집
-
-./MQTTX-1.9.1-arm64.AppImage
-
-이제 GUI 기반의 MQTT 클라이언트인 MQTTX를 라즈베리파이에서 사용할 수 있습니다.
-
-또한, MQTT 브로커를 설치하려면 Mosquitto를 사용할 수 있습니다. Mosquitto는 오픈 소스 MQTT 브로커로, 라즈베리파이에서 쉽게 설치할 수 있습니다. 설치 방법은 다음과 같습니다:
-
-패키지 목록 업데이트:
-
-터미널에서 다음 명령어를 입력하여 패키지 목록을 업데이트합니다:
-
-sql
-
-복사
-
-편집
-
-udo apt update
-
-Mosquitto 및 클라이언트 설치:
-
-다음 명령어를 입력하여 Mosquitto와 클라이언트 도구를 설치합니다:
-
-nginx
-
-복사
-
-편집
-
-sudo apt install -y mosquitto mosquitto-clients
-
-Mosquitto 서비스 시작 및 부팅 시 자동 시작 설정:
-
-Mosquitto 서비스를 시작하고, 부팅 시 자동으로 시작되도록 설정합니다:
-
-pgsql
-
-복사
-
-편집
-
-sudo systemctl start mosquitto
-
-sudo systemctl enable mosquitto
