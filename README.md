@@ -27,7 +27,7 @@ raspberry pi pico 2w 아두이노 기본 설정
 
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
-MY SQL
+//MY SQL//
 
 라즈베리파이에 마리아DB 설치하기
 
@@ -60,6 +60,8 @@ bind-address = 127.0.0.1
 //이렇게 바꿔주기(그리고 나서 저장)
 
 bind-address = 0.0.0.0
+
+//만약에 저장이 않될수가 있는데요 그럼  :wq
 
 //db접속
 
