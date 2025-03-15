@@ -29,6 +29,24 @@ https://github.com/earlephilhower/arduino-pico/releases/download/global/package_
 
 MYSQL
 
+sudo mysql -u root
+
+//사용자 걔정 생성
+
+CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
+
+//권한 부여
+
+GRANT CREATE, DROP,ALTER , SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
+
+FLUSH PRIVILEGES;
+
+//데이터베이스 재부팅
+
+sudo systemctl restart mariadb
+
+//계정생성 확인(로그인해보기)
+
 sudo mysql -u arduino -p
 
 //비밀번호입력
