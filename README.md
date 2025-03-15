@@ -67,7 +67,7 @@ bind-address = 0.0.0.0
 
 sudo mysql -u root
 
-//사용자 걔정 생성
+//사용자 개정 생성
 
 CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
@@ -75,7 +75,9 @@ CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
 
 GRANT CREATE, DROP,ALTER , SELECT, INSERT, UPDATE, DELETE ON *.* TO 'arduino'@'%';
 
+
 FLUSH PRIVILEGES;
+
 
 //데이터베이스 재부팅
 
@@ -120,6 +122,7 @@ show tables;
 desc distance_data;
 
 select * from distance_data;
+
 
 // 라즈베리파이5 MQTTX 세팅 방법 //
 
