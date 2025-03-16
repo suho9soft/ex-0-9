@@ -123,6 +123,14 @@ desc distance_data;
 
 select * from distance_data;
 
+5//  use python30;
+
+show tables;
+
+desc cds_data;
+
+select * from cds_data;
+
 
 // 라즈베리파이5 MQTTX 세팅 방법 //
 
