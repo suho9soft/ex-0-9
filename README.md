@@ -99,7 +99,15 @@ FLUSH PRIVILEGES;
 
 이 명령어는 특정 스키마(python1)에서 arduino 사용자가 모든 작업을 수행할 수 있는 권한을 부여합니다.
 
-////////////////////////////////////////
+
+//////////////////////////////////////////
+
+
+insert into final_data(rotary,temp,humi,data) values(1,2,3,'4');
+
+sql = "insert into final_data(rotary,temp,humi,data) values(%s,%s,%s,%s);"
+
+//////////////////////////////////////////
 
 //데이터베이스 재부팅
 
