@@ -66,7 +66,7 @@ FLUSH PRIVILEGES;
 
 FLUSH PRIVILEGES; 명령어는 변경 사항을 즉시 적용합니다.
 
-//데이터베이스 재부팅
+//데이터베이스 재부팅//
 
 sudo systemctl restart mariadb
 
