@@ -35,12 +35,73 @@ sudo apt update && sudo apt upgrade -y
 
 //설치
 
-sudo apt install -y mariadb-server 
+sudo apt install -y mariadb-server
 
 //커맨드라인클라이언트 실행
 
 sudo mysql -u root
 
+//빠져나오기
+
+exit;
+
+//파이썬 pymysql 패키지 설치하기
+
+pip install pymysql
+
+//이 파일을 vi편집기나 nano에디터로 열기
+
+sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
+
+//아래 부분을 찾아서
+
+bind-address = 127.0.0.1
+
+//이렇게 바꿔주기(그리고 나서 저장)
+
+bind-address = 0.0.0.0
+
+//만약에 저장이 않될수가 있는데요 그럼 :wq
+
+//db접속
+
+sudo mysql -u root
+
+//사용자 개정 생성
+
+CREATE USER 'arduino'@'%' IDENTIFIED BY '123f5678';
+
+//다시//
+
+//권한 부여// root //
+
+GRANT CREATE, DROP,ALTER , SELECT, INSERT, UPDATE, DELETE ON . TO 'arduino'@'%';
+
+FLUSH PRIVILEGES;
+
+/////////////////////////////////
+
+arduino 사용자의 권한 상태 다시 확인하기
+
+sql
+
+SHOW GRANTS FOR 'arduino'@'%';
+
+실행 결과로 arduino 계정에 CREATE 권한이 없을 경우 추가 권한이 필요합니다.
+
+관리자 권한 계정으로 접속 후 권한 부여하기 MySQL 관리자 계정(예: root)으로 접속 후 다음 명령어를 입력하여 권한을 부여합니다:
+
+sql
+
+GRANT ALL PRIVILEGES ON python1.* TO 'arduino'@'%';
+
+FLUSH PRIVILEGES;
+
+이 명령어는 특정 스키마(python1)에서 arduino 사용자가 모든 작업을 수행할 수 있는 권한을 부여합니다.
+
+////////////////////////////////////////
+
+//데이터베이스 재부팅
 
 
 
