@@ -41,6 +41,7 @@ sudo apt install -y mariadb-server
 
 sudo mysql -u root
 다
+
 //my sql 권한 부여 프로젝트 생성//
 
 사용자 권한 확인:
