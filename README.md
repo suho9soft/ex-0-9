@@ -40,33 +40,10 @@ sudo apt install -y mariadb-server
 //커맨드라인클라이언트 실행
 
 sudo mysql -u root
-다
 
-//my sql 권한 부여 프로젝트 생성//
 
-사용자 권한 확인:
 
-arduino 사용자가 스키마를 생성할 권한이 있는지 확인하세요. 다음 명령어를 실행하여 권한을 확인할 수 있습니다:
 
-sql
-
-SHOW GRANTS FOR 'arduino'@'%';
-
-이 명령어는 사용자에게 부여된 권한을 보여줍니다.
-
-필요한 권한 부여:
-
-arduino 사용자에게 CREATE 권한이 없을 경우, 권한이 충분한 사용자(예: root)로 로그인하여 다음 명령어를 실행하세요:
-
-sql
-
-GRANT CREATE ON *.* TO 'arduino'@'%';
-
-FLUSH PRIVILEGES;
-
-FLUSH PRIVILEGES; 명령어는 변경 사항을 즉시 적용합니다.
-
-//데이터베이스 재부팅//
 
 sudo systemctl restart mariadb
 
